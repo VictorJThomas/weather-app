@@ -1,9 +1,16 @@
+import { SetStateAction, useState } from "react";
 import { RiSearch2Line } from "react-icons/ri";
 
-export const SearchBar = () => {
+export const SearchBar = ({onSearch}) => {
+  const [cityName, setCityName] = useState('')
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
-    e.preventDefault()
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSearch(cityName)
+  }
+
+  const handleInputChange = (e: { target: { value: SetStateAction<string>; }; }) => {
+    setCityName(e.target.value)
   }
 
   return (
@@ -19,6 +26,8 @@ export const SearchBar = () => {
           name="place"
           placeholder="Search for places..."
           className="h-8 placeholder:text-black text-xs pl-5 w-[14rem]"
+          value = {cityName}
+          onChange={handleInputChange}
         />
       </form>
     </div>

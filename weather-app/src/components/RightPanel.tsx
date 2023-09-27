@@ -16,7 +16,7 @@ export const RightPanel = () => {
   };
 
   return (
-    <div className="w-[100%] container p-8 px-10 rounded-r-[50px] bg-[#e8e7e7]">
+    <div className="w-[100%] container p-8 px-10 rounded-r-[50px] bg-[#F0F0F0]">
       <div className="flex flex-2 flex-row justify-between">
         <div className="flex m-2 gap-2  text-xl">
           <button

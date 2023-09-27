@@ -32,19 +32,22 @@ export const LeftPanel = () => {
       {weatherData ? (
         <div>
           <div className="pl-6">
-            <img src={weatherData.current.condition.icon} alt="current_condition" width="200px"/>
+            <img src={weatherData.current.condition.icon} alt="current_condition" width="170px"/>
           </div>
-          <div className="text-black pl-8 text-6xl">{weatherData.current.temp_c}°C</div>
-          <div className="flex flex-2 text-base pl-8 my-4">
+          <div className="flex">
+            <div className="text-black pl-8 text-6xl">{weatherData.current.temp_c}</div>
+            <div className="text-black text-4xl pt-1">°C</div>
+          </div>
+          <div className="flex flex-2 text-base pl-10 my-4">
             <div className="text-gray-900 text-end">
               <strong>{getDayOfWeek(weatherData.location.localtime)},</strong>
             </div>
             <div className="text-gray-500 text-start">{formatTime(weatherData.location.localtime)}</div>
           </div>
           <hr />
-          <div className="text-sm m-2 my-3 pl-6">
+          <div className="text-sm m-2 my-3 pl-8">
             <div className="my-4">{weatherData.current.condition.text}</div>
-            <div className="my-4">Humidity - {weatherData.current.humidity}%</div>
+            <div className="my-4">Rain - 90%</div>
           </div>
         </div>
       ) : (

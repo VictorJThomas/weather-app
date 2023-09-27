@@ -2,8 +2,6 @@
 import axios, { AxiosResponse } from "axios";
 import { Dispatch } from "redux";
 import { fetchWeatherStart, fetchWeatherSuccess, fetchWeatherFailure } from "../redux/reducers/weatherSlice";
-// import { ThunkAction } from "redux-thunk";
-// import { RootState } from "../redux/store";
 
 const baseUrl = "http://api.weatherapi.com/v1/current.json";
 const apiKey = "e9cd94ec63694a59872150838232309";

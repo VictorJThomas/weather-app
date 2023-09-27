@@ -14,6 +14,7 @@ interface WeatherData {
       icon: string;
     };
     wind_kph: number;
+    wind_dir: string;
     pressure_mb: number;
     humidity: number;
     cloud: number;

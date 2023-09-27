@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { WeekContainer } from "./WeekContainer";
 import { HighLightCard } from "./HighlightCard";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+import { UVCard } from "./UVCard";
+import { WindCard } from "./WindCard";
+import { CloudCard } from "./CloudCard";
 
 export const RightPanel = () => {
-  const [selectedOption, setSelectedOption] = useState<string>("today");
+  const [selectedOption, setSelectedOption] = useState<string>("week");
 
   const [degree, setDegree] = useState<string>("C");
 
@@ -15,10 +20,13 @@ export const RightPanel = () => {
     setSelectedOption(option);
   };
 
+  const weatherData = useSelector((state: RootState) => state.weather.data);
+
+
   return (
-    <div className="w-[100%] container p-8 px-10 rounded-r-[50px] bg-[#F0F0F0]">
-      <div className="flex flex-2 flex-row justify-between">
-        <div className="flex m-2 gap-2  text-xl">
+    <div className="w-[100%] container p-4 px-10 rounded-r-[50px] bg-[#F0F0F0]">
+      <div className="flex flex-2 flex-row justify-between pb-12">
+        <div className="flex m-2 gap-4 text-xl">
           <button
             className={`hover:cursor-pointer ${
               selectedOption === "today"
@@ -66,9 +74,9 @@ export const RightPanel = () => {
       <div className="pt-10">
         <h2 className="text-xl font-bold">Today's Highlights</h2>
         <div className="grid grid-cols-3 gap-6 mt-6 m-2">
-          <HighLightCard />
-          <HighLightCard />
-          <HighLightCard />
+          <UVCard />
+          <WindCard />
+          <CloudCard />
           <HighLightCard />
           <HighLightCard />
           <HighLightCard />
